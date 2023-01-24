@@ -4,7 +4,7 @@ from fastapi import FastAPI
 import { accountService} from ./Services/accountService
 
 app = FastAPI()
-accountService = AcountService()
+accountService = AccountService()
 
 app = FastAPI()
 

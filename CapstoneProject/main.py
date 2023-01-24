@@ -3,7 +3,7 @@ from typing import Union
 from fastapi import FastAPI
 import { accountService} from ./Services/accountService
 
-app = FastAPI()
+
 accountService = AcountService()
 
 app = FastAPI()
@@ -20,10 +20,17 @@ def get_all_account(item_id: int, q: Union[str, None] = None):
     return {"account_lists": accountList}
 
 @app.get("/getAccount/{accountId}")
-def get_account(account_id: int, q: Union[str, None] = None):
-    account = accountService.getAccount(account_id).fetchall(
+def get_account(account_id: int,):
+    account = accountService.getAccount(account_id)
     first_name = account.firstName
     last_name = account.lastName
     address = account.address
     email_address = account.emailAddress
-    return {"account_lists": accountList, }
+    return {"first_name": first_name, "last_name": last_name, "address": address, "email_address": email_address }
+
+@app.get("/withdraw/{account_Id}/{amount}")
+def withdraw(account_Id: int):
+    accountList = accountService.getAllAccounts()
+    return {"success": "success!"}
+
+

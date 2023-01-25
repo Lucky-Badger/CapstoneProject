@@ -1,19 +1,21 @@
 import psycopg2
-from models import Account
+from models import Address
 
-class AccountRepository():
-    def insert(self, account:Account) -> Account:
+class AddressRepository():
+    def insert(self, address:Address) -> Address:
         with psycopg2.connect() as db:
             with db.cursor() as cursor:
                 cursor.execute("""
-                    INSERT INTO account
-                    (AccountNumber, CustomerID, CurrentBalance) VALUES
-                    (%(id)s, %(customer_id)s, %(balance)s)
+                    INSERT INTO address
+                    (PrimaryID, Address, City, State, ZipCode) VALUES
+                    (%(id)s, %(address)s, %(city)s, %(state)s, %(zip)s)
                     RETURNING id""",{
-                    'id': account.id,
-                    'customer_id': account.customer_id,
-                    'balance': account.balance
+                    'id': address.id,
+                    'address_number': address.address,
+                    'city': address.city,
+                    'state': address.state,
+                    'zip': address.zip
                     }
                 )
-                account.id = cursor.fetchone()[0]
-            return account
+                address.id = cursor.fetchone()[0]
+            return address

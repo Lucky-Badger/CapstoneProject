@@ -1,21 +1,14 @@
 from typing import Union
-
 from fastapi import FastAPI
-import { accountService} from ./Services/accountService
+from FeatureModules.Services import accountService
 
-<<<<<<< HEAD
-app = FastAPI()
-accountService = AcountService()
-=======
-
-accountService = AcountService()
->>>>>>> origin
+accountService = AccountService()
 
 app = FastAPI()
 
-@app.post("/createAccount/{id}/{address}/{city}/{state}/{zipcode}")
-def create_account(id: int, address, city, state, zipcode):
-    accountService.createAccount(id, address, city, state, zipcode)
+@app.post("/createAccount/{id}/{address}/{city}/{state}/{zip}")
+def create_account(id: int, address, city, state, zip):
+    accountService.createAccount(id, address, city, state, zip)
     return {"Hello": "World"}
 
 

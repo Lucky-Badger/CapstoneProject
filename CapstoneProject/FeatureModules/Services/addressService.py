@@ -1,5 +1,5 @@
-from models import Address
-from Repositories.address_repo import AddressRepository
+from FeatureModules.models import Address
+from FeatureModules.Repositories.address_repo import AddressRepository
 
 class addressService():
   

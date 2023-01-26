@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from FeatureModules.models import Customer, Address
  
 class Address(BaseModel):
     id: int
@@ -11,11 +12,11 @@ class Customer(BaseModel):
     id: int
     firstname: str
     lastname: str
-    address_id: int
+    address_id: Address
     email: str
 
 class Account(BaseModel):
     id: str
     account_number: str
-    customer_id: int
+    customer_id: Customer
     balance: float

@@ -15,3 +15,8 @@ docker run --name team4image.v1 #password? -p 5432:5432 -d postgres
             docker login (create dockerhub login and use credentials)
             docker tag team4image.v1:latest nw888/dockerhub:myfirstimagepush
             docker push nw888/dockerhub:myfirstimagepush
+### pulling to EC2
+            docker login
+            docker run --name Capstone -p 5431:8080 -d nw888/dockerhub:myfirstimagepush
+            docker ps -a #lists running containers
+            

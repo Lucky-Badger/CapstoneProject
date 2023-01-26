@@ -1,4 +1,4 @@
-from FeatureModules.models import Account
+from FeatureModules.models import Address
 from FeatureModules.Repositories.account_repo import AccountRepository
 
 class accountService():

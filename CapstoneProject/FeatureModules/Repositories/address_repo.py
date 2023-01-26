@@ -1,5 +1,5 @@
 import psycopg2
-from models import Address
+from FeatureModules.models import Address
 
 class AddressRepository():
     def insert(self, address:Address) -> Address:

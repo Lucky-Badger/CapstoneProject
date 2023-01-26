@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from FeatureModules.models import Customer, Address
+
  
 class Address(BaseModel):
     id: int

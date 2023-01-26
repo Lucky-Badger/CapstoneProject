@@ -1,5 +1,5 @@
 import psycopg2
-from models import Customer, Address
+from FeatureModules.models import Customer, Address
 
 class CustomerRepository():
     def insert(self, customer:Customer) -> Customer:
